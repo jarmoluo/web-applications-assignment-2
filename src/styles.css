@@ -20,6 +20,14 @@ body {
   background-color: rgb(124, 252, 0);
 }
 
+.cell.player1::after {
+  content: "X";
+}
+
 .cell.player2 {
   background-color: rgb(250, 128, 114);
+}
+
+.cell.player2::after {
+  content: "O";
 }

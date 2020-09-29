@@ -18,16 +18,14 @@ function markTableCell(cell) {
   var index = cell.id;
   var rowIndex = cell.id.split("-")[0];
   var colIndex = cell.id.split("-")[1];
-  var cellNode, markNode;
+  var cellNode;
 
   // Tarkistetaan, onko solu tyhjä
   if (board[rowIndex][colIndex] === undefined) {
     // Lisätään pelaajan merkki valittuun soluun
     board[rowIndex][colIndex] = mark;
-    markNode = document.createTextNode(mark);
     cellNode = document.getElementById(index);
     cellNode.classList.add("player" + activePlayer);
-    cellNode.appendChild(markNode);
     // Tarkistetaan pelitilanne
     checkBoard(rowIndex, colIndex);
     // Vaihdetaan pelivuoro
@@ -50,15 +48,10 @@ function generateBoard(sideLength) {
 
     // Lisätään sarakkeet/solut
     for (var j = 0; j < sideLength; j++) {
-      //board[i + "-" + j] = undefined;
       board[i][j] = undefined;
       newCol = document.createElement("td");
       newCol.setAttribute("id", i + "-" + j);
       newCol.setAttribute("class", "cell");
-      //newCol.style.border = "thin solid";
-      //newCol.style.width = (100 / sideLength).toString() + "%";
-      //newCol.style.height = (100 / sideLength).toString() + "%";
-      //newCol.style.textAlign = "center";
       newCol.onclick = function () {
         markTableCell(this);
       };
@@ -66,9 +59,6 @@ function generateBoard(sideLength) {
     }
 
     table.appendChild(newRow);
-    //table.style.borderCollapse = "collapse";
-    //table.style.width = (sideLength * 40).toString() + "px";
-    //table.style.height = (sideLength * 40).toString() + "px";
   }
 }
 
