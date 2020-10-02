@@ -1,6 +1,6 @@
 import "./styles.css";
 
-var board, activePlayer, mark;
+var board, activePlayer, mark, timerInterval;
 
 if (document.readyState !== "loading") {
   console.log("Document ready. Starting program..");
@@ -93,6 +93,7 @@ function changePlayer() {
   activePlayer = activePlayer === 1 ? 2 : 1;
   // Valitaan merkki vuorossa olevan pelaajan mukaan
   mark = activePlayer === 1 ? "X" : "O";
+  startTimer();
 }
 
 function endGame() {
@@ -100,8 +101,35 @@ function endGame() {
   initialize();
 }
 
+function startTimer() {
+  var width = 0;
+  var seconds = 0;
+  if (timerInterval !== undefined) clearInterval(timerInterval);
+  timerInterval = setInterval(frame, 1000);
+
+  var elem = document.getElementById("myBar");
+  elem.style.width = width + "%";
+  document.getElementById("turn").innerHTML =
+    "Player " + activePlayer + " turn";
+  document.getElementById("timer").innerHTML = seconds + " s";
+
+  // Funktio, jota kutsutaan 1s välein
+  function frame() {
+    if (width >= 100) {
+      clearInterval(timerInterval);
+      changePlayer();
+    } else {
+      seconds++;
+      width += 10;
+      elem.style.width = width + "%";
+      document.getElementById("timer").innerHTML = seconds + " s";
+    }
+  }
+}
+
 function initialize() {
   generateBoard(5);
   activePlayer = 1;
   mark = "X";
+  startTimer();
 }
