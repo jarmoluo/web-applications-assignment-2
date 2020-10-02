@@ -1,31 +1,23 @@
-# web-applications-assignment-1
+# web-applications-assignment-2
 
 ---
 
-## Assignment 1
+## Assignment 2
 
 Introduction
 
-The theme of this week is getting familiar with HTML, the basics of JavaScript, and how these two connect to each other in the browser. In order to practice our skills on those themes, we will create a simple tic tac toe game and an attached JavaScript system to manipulate and score the gaming grid.
-
-In the assignment, we will also familiarize ourselves with the Codesandbox programming environment, which is a convenient browser-based HTML+JavaScript programming and preview environment.
+The theme of this week is getting familiar with markup using Cascading Style Sheets (CSS). In order to practice our skills on those themes, we will use the previously developed game and apply styles to this game.
 
 Requirements and scoring
 
-1. Create a tic tac toe table using HTML
-
-- Create a basic HTML markup with the empty container with ID “board”
-
-2. Create a data structure using JavaScript
-
-- Render the empty 5x5 table with JavaScript
-
-3. Make the table interactive
-
-- On every click, table cell should be filled with either ‘x’ or ‘o’ depending on the current player
-
-4. Create a function to calculate the win condition
-
-- If one player has 5 symbols in a row, column, or diagonal, the program should call Alert with the text “Player N won!”, where N should be 1 or 2 respectively.
-
-5. Bonus: Make the table infinite - the board should always have 3 empty rows and columns on each side.
+1. Use CSS to format the gaming board 
+	1. The board should have collapsed and 1px solid black border
+	2. Board cell should have size 60px x 60 px
+	3. Board cell should have text aligned to the center both vertically and horizontally
+	4. Cells with first player’s marks should have symbols ‘x’ and have background colored with the color described by RGB code 124, 252, 0;
+	5. Cells with second player’s marks should have symbols ‘o’ and have background colored with the color described by RGB code 250, 128, 114;
+	6. Both symbols should have ‘Helvetica’ font
+	7. Both symbols should be sized as 30px
+	
+2. The game should have the timer and progress bar (see https://www.w3schools.com/w3css/w3css_progressbar.asp for reference).
+	1. If a player doesn’t make his turn within 10 seconds, the game should switch the player.
