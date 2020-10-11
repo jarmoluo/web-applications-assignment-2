@@ -131,5 +131,6 @@ function initialize() {
   generateBoard(5);
   activePlayer = 1;
   mark = "X";
-  startTimer();
+  document.getElementById("turn").innerHTML =
+    "Player " + activePlayer + " turn";
 }
